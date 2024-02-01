@@ -2,7 +2,7 @@
 This is the repository I will be using for all in-class content throughout this semester. I will maybe also upload some other stuff. 
 
 # About me
-![Photo of me](https://github.com/hanhursp1/course-content/blob/main/photo.jpg?raw=true)
+<p align="center"><img src="https://github.com/hanhursp1/course-content/blob/main/photo.jpg?raw=true" width="200"></p>
 
 I’m considered the computer guy in my family. I’ve always had an interest in learning software development, and would read books about programming in my spare time as a kid. My major is in computer engineering, as I am particularly interested in the low-level workings of computer hardware, and embedded platforms such as microcontrollers and FPGAs. Most of my prior projects, however, have been in game development. I have participated in a few game jams, and last semester I worked on a Mars rover game called Curiosity with 4 other students as part of the software engineering course. In my daily life I mainly write little automation scripts for things like renaming or converting files. I also practice different programming concepts and data structures using the programming language Nim, a C-level language with python-like syntax.
 
