@@ -1,0 +1,162 @@
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.399);
+  --small-screen: 600px
+}
+
+body {
+  background-color: rgb(30, 48, 30);
+  color: white;
+  font-family: Fira Sans, sans-serif;
+  margin: 0px max(10px, 5%) 0px !important;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: min(max(30%, 200px), 250px) auto;
+  /* grid-template-rows: minmax(100px, auto); */
+  /* gap: 10px; */
+}
+
+.toplogo {
+  text-align: center;
+}
+
+.desktop-only {
+  display: inherit;
+}
+
+.mobile-only {
+  display: none;
+}
+
+
+/* Sidebar Content */
+.sidebar {
+  display: inline;
+  padding: 0px 0px 0px 0px;
+  background-color: rgb(0, 33, 0);
+  border: 5px double green;
+  border-top: 0px;
+  border-bottom: 0px;
+  height: max(100vh, 100%);
+  z-index: 1;
+  box-shadow: -5px 0px 5px 0px var(--shadow-color);
+}
+
+.links {
+  padding: 0px;
+  margin: 0px;
+}
+
+.links p {
+  padding: 4px 3px 4px;
+  margin: 0px;
+  transition: 0.1s ease-in;
+  background-color: rgb(150, 245, 150);
+}
+
+.links a {
+  width: 100%;
+}
+
+.links a {
+  color: black;
+  text-decoration: none;;
+}
+
+.links p:hover {
+  background-color: green;
+}
+
+
+/* Post Content */
+.post {
+  background-color: white;
+  margin: 5px;
+  margin-left: 0px;
+  border-radius: 0px 8px 5px 0px;
+  box-shadow: -5px 10px 5px 0px var(--shadow-color);
+}
+
+.post .date {
+  float: right;
+  color: white;
+  padding: 0px 5px 5px 10px;
+  padding-top: 0px;
+  margin-top: 6px;
+}
+
+.post h2 {
+  background-color: green;
+  padding: 5px;
+  border-radius: 0px 5px 0px 0px;
+}
+
+.post p {
+  color: black;
+  /* padding: 5px; */
+  padding: 5px 5px 5px;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: rgb(30, 48, 30);
+    color: white;
+    font-family: Fira Sans, sans-serif;
+    margin: 0px 0px 0px !important;
+  }
+
+  .post {
+    margin-right: 0px;
+    border-radius: 0px;
+    box-shadow: 0px 10px 5px 0px var(--shadow-color);
+  }
+
+  .post h2 {
+    border-radius: 0px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: auto;
+    /* grid-template-rows: minmax(100px, auto); */
+    /* gap: 10px; */
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    margin: 0px;
+    padding-bottom: 5px;
+    width: 100%;
+    border: 5px double green;
+    border-left: 0px;
+    border-right: 0px;
+  }
+
+  .sidebar h1 {
+    display: none;
+    margin-top: 4px;
+    margin-bottom: 2px;
+  }
+
+  .sidebar .links {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    /* grid-template-rows: 30px 30px; */
+  }
+  
+  .sidebar .links p {
+    margin: 2px;
+    padding: 10px;
+    border-radius: 3px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: inherit;
+  }
+}
