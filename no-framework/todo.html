@@ -48,7 +48,7 @@
         </div>
       </div>
     </nav>
-    <div class="main section">
+    <div class="main section" id="app">
       <div class="container is-widescreen">
         <div class="columns">
           <!-- Left card -->
@@ -116,10 +116,10 @@
               
             </nav>
             <!-- Github message notification -->
-            <article class="message is-primary i">
+            <article class="message is-primary i" v-show="showAlert">
               <div class="message-header">
-                <p>Make a Github Account</p>
-                <button class="delete" aria-label="delete"></button>
+                <p>{{ message }}</p>
+                <button @click="showAlert = false" class="delete" aria-label="delete"></button>
               </div>
               <div class="message-body">
                 <p>Go to <a href="https://github.com/">github.com</a> and create an account</p>
@@ -233,5 +233,18 @@
         </div>
       </div>
     </div>
+    <script type="module">
+      import {createApp, ref} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+      createApp({
+        setup() {
+          const message = ref('Hello world!')
+          const showAlert = ref(true)
+          return {
+            message, showAlert
+          }
+        }
+      }).mount("#app")
+    </script>
   </body>
 </html>

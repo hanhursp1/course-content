@@ -1,6 +1,9 @@
 :root {
   --shadow-color: rgba(0, 0, 0, 0.399);
-  --small-screen: 600px
+  --small-screen: 600px;
+  --button-col: rgb(150, 245, 150);
+  --button-hover: green;
+  --transparent: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -17,6 +20,7 @@ body {
   /* gap: 10px; */
 }
 
+/* Objects */
 .toplogo {
   text-align: center;
 }
@@ -27,6 +31,20 @@ body {
 
 .mobile-only {
   display: none;
+}
+
+.button {
+  background-color: var(--button-col);
+  border: 0px;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 40px;
+  transition: 0.1s ease-in;
+  margin: 0px;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
 }
 
 
@@ -52,20 +70,17 @@ body {
   padding: 4px 3px 4px;
   margin: 0px;
   transition: 0.1s ease-in;
-  background-color: rgb(150, 245, 150);
+  background-color: var(--button-col);
 }
 
 .links a {
   width: 100%;
-}
-
-.links a {
   color: black;
   text-decoration: none;;
 }
 
 .links p:hover {
-  background-color: green;
+  background-color: var(--button-hover);
 }
 
 
@@ -78,6 +93,10 @@ body {
   box-shadow: -5px 10px 5px 0px var(--shadow-color);
 }
 
+.post * {
+  margin: 5px;
+}
+
 .post .date {
   float: right;
   color: white;
@@ -88,14 +107,25 @@ body {
 
 .post h2 {
   background-color: green;
-  padding: 5px;
+  margin: 0px;
+  padding: 5px 5px 5px 10px;
   border-radius: 0px 5px 0px 0px;
+  box-shadow: 0px 2px 5px var(--shadow-color);
 }
 
 .post p {
   color: black;
   /* padding: 5px; */
   padding: 5px 5px 5px;
+}
+
+/* Post buttons */
+.post-buttons {
+  background-color: gray;
+  margin: 0px;
+  border-radius: 0px 0px 5px 0px;
+  box-shadow: 0px -2px 5px var(--shadow-color);
+  background: white;
 }
 
 @media screen and (max-width: 600px) {

@@ -1,6 +1,6 @@
 
-function fuck(a: number, b: number): number {
+function foo(a: number, b: number): number {
   return a * b;
 }
 
-console.log(fuck(2, 3))
+console.log(foo(2, 3))
