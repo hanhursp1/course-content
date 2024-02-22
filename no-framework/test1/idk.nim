@@ -1,8 +1,7 @@
 when defined(js):
   import
-    std/[dom]
+    std/[dom, jsconsole]
 
   window.alert("Hello world!")
 
-else:
-  echo "Hello world!"
+  console.log("Hello log!")
