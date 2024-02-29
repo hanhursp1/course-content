@@ -1,11 +1,11 @@
 <template>
   <div class="what">
-    <img class="bug-facts" src="@/assets/true.jpg">
+    <img class="lizard" src="@/assets/he_stole_my_nugget.jpg">
   </div>
 </template>
 
-<style>
-.what .bug-facts {
+<style scoped>
+.what .lizard {
   width: 400px;
   height: auto;
   border-radius: 8px;

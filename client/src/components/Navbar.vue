@@ -1,5 +1,18 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+import { ref } from 'vue'
+import type { Ref } from 'vue'
+import { RouterLink } from 'vue-router'
+
+let isActive: Ref<boolean> = ref(false)
+
+function toggleMenu() {
+  isActive.value = !isActive.value
+}
+
+function setMenuActive(val: boolean) {
+  isActive.value = val;
+}
+
 </script>
 
 <template>
@@ -9,21 +22,21 @@ import { RouterLink } from 'vue-router';
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" @click="toggleMenu()" class="navbar-burger" :class="{'is-active':isActive}" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isActive}">
     <div class="navbar-start">
       <RouterLink to="/" active-class="is-active" class="navbar-item">
         Home
       </RouterLink>
 
       <RouterLink to="/what" class="navbar-item">
-        Cool bug facts
+        Click for lizard
       </RouterLink>
 
       <div class="navbar-item has-dropdown is-hoverable">
