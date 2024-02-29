@@ -6,21 +6,21 @@
 
 <style>
 .what .bug-facts {
-  width: 50%;
-  height: 50%;
+  width: 400px;
+  height: auto;
   border-radius: 8px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  /* border: 2px solid ; */
 }
 
 .what {
   border-radius: 8px;
   padding: 8px;
+  background-color: #00D2B4;
+  width: max-content;
+  height: max-content;
   margin-left: auto;
   display:block;
   margin-right: auto;
-  width: auto;
   border: 2px solid grey;
 }
 
