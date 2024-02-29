@@ -39,6 +39,10 @@ function setMenuActive(val: boolean) {
         Click for lizard
       </RouterLink>
 
+      <RouterLink to="/documentation" class="navbar-item">
+        Documentation
+      </RouterLink>
+
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More
