@@ -10,7 +10,7 @@ function toggleMenu() {
 }
 
 function setMenuActive(val: boolean) {
-  isActive.value = val;
+  isActive.value = val
 }
 
 </script>
