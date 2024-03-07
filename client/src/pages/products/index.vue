@@ -1,38 +1,46 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import type { Ref } from 'vue'
+  import {
+    ref, onMounted, computed
+  } from 'vue'
+  import type {
+    Ref
+  } from 'vue'
 
-import { type Product, getProducts } from "@/model/products"
+  import { type Product, getProducts } from "@/model/products"
 
-const products = ref([] as Product[])
+  const products = ref([] as Product[])
 
-type CartItem = {
-  product: Product,
-  quantity: number
-}
-
-const selectedQty = ref([] as number[])
-selectedQty.value = new Array<number>(products.value.length)
-
-const cart = ref([] as CartItem[])
-
-function addToCart(product: Product) {
-  addWithQuantity(product, 1)
-}
-
-function addWithQuantity(product: Product, qty: number) {
-  if (qty <= 0) return;
-  const item = cart.value.find(item => item.product.id === product.id)
-  if (item) {
-    item.quantity += qty|0
-  } else {
-    cart.value.push({
-      product, quantity: qty|0
-    })
+  type CartItem = {
+    product: Product,
+    quantity: number
   }
-}
 
-products.value = getProducts()
+  const selectedQty = ref([] as number[])
+  // selectedQty.value = (new Array<number>(products.value.length)).map(_ => 1)
+
+  const cart = ref([] as CartItem[])
+
+  function addToCart(product: Product) {
+    addWithQuantity(product, 1)
+  }
+
+  function addWithQuantity(product: Product, qty: number) {
+    if ((qty|0) < 0) return;
+    const item = cart.value.find(item => item.product.id === product.id)
+    qty = (qty|0) == 0 ? (1|0) : qty|0
+    if (item) {
+      item.quantity += qty|0
+      if (item.quantity > product.stock) item.quantity = product.stock;
+    } else {
+      cart.value.push({
+        product, quantity: qty > product.stock ? product.stock : qty
+      })
+    }
+  }
+
+  const total = computed(() => cart.value.reduce((total, item) => total + (item.product.price * item.quantity), 0))
+
+  products.value = getProducts()
 
 
 </script>
@@ -46,9 +54,11 @@ products.value = getProducts()
       <div class="card-content">
         <p class="price">${{ product.price }}</p>
         <h1>{{ product.title }}</h1>
+        <i>{{ product.brand }}</i>
         <p>{{ product.description }}</p>
         <button @click="addWithQuantity(product, selectedQty[product.id - 1])" class="button is-primary">Add to Cart</button>
-        <input type="number" v-model="selectedQty[product.id - 1]" placeholder="0">
+        <br>
+        <input type="number" v-model="selectedQty[product.id - 1]" placeholder="Quantity">
       </div>
     </div>
     <div class="flyout">
@@ -60,6 +70,7 @@ products.value = getProducts()
           <img :src="item.product.thumbnail" :alt="item.product.title">
           {{ item.product.title }} x {{ item.quantity }} = $ {{ item.product.price * item.quantity }}
         </li>
+        {{ cart.length }} items totalling ${{ total.toFixed(2) }}
       </ul>
       
     </div>
