@@ -14,7 +14,7 @@ export interface Product {
   images: string[]
 }
 
-function getProducts(): Product[] {
+export function getProducts(): Product[] {
   return products.items as Product[]
 }
 
