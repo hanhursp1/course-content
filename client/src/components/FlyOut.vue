@@ -25,7 +25,7 @@ const emit = defineEmits<{
     border: 1px solid #ccc;
     box-shadow: -1px 0 5px 0 black;
     z-index: 100;
-    transform: translateX(80%);
+    transform: translateX(90%);
     transition: transform .3s;
     padding: 1rem;
   }

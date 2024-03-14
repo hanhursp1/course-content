@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { count, showCart } from '@/viewModel/cart';
+import LoginBadge from '@/components/LoginBadge.vue'
 
 let isActive: Ref<boolean> = ref(false)
 
@@ -71,15 +73,16 @@ function setMenuActive(val: boolean) {
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
+      <div class="navbar-item shift-with-cart" :class="{'enabled': showCart}">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          <button class="button" @click="showCart = !showCart">
+            <i class="fas fas-shopping-cart"></i>
+            <span class="tag is-primary">{{ count }}</span>
+          </button>
         </div>
+      </div>
+      <div class="navbar-item">
+        <LoginBadge/>
       </div>
     </div>
   </div>
@@ -94,6 +97,14 @@ function setMenuActive(val: boolean) {
 
 .router-link-active {
   border-bottom: 2px solid #00d2b3;
+}
+
+.shift-with-cart {
+  transition: 0.2s linear;
+}
+
+.shift-with-cart.enabled {
+  transform: translatex(-20rem);
 }
 
 </style>

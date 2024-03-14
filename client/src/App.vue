@@ -4,11 +4,16 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <Navbar />
-  <div class="container">
-    <RouterView />
+  <div class="window">
+    <Navbar />
+    <div class="container">
+      <RouterView />
+    </div>
   </div>
 </template>
 
 <style scoped>
+.window{
+  margin-right: 2rem;
+}
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Product } from '@/model/products';
-import { Ref, ref } from 'vue';
+import { type Product } from '@/model/products';
+import { type Ref, ref } from 'vue';
 
 const props = defineProps<{
   product: Product
